@@ -10,7 +10,11 @@ const attendanceRoutes = require('./routes/attendanceRoutes');
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://attendance-r2xbgmmj4-vinay-rahuls-projects.vercel.app',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/attendance', attendanceRoutes);
